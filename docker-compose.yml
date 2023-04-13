@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  nginx:
+    build:
+      dockerfile: NginxDockerfile
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+
+  version-one:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "81:8080"
+    networks:
+      - my-network
+
+  version-two:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "82:8080"
+    networks:
+      - my-network
+
+networks:
+  my-network:
